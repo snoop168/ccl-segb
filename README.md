@@ -24,7 +24,7 @@ python ccl_segb2.py <segb2 filename>
 
 ```python
 import sys
-import ccl_segb
+from ccl_segb import ccl_segb
 
 # input_path can be a SEGB1 or SEGB2 file
 input_path = sys.argv[1]
@@ -36,8 +36,8 @@ for record in ccl_segb.read_segb_file(input_path):
     state = record.state
     data = record.data
     ts1 = record.timestamp1
-    ts2 = record.timestamp2 # Timestamp2 only present if record is a SEGB1
-    
+    ts2 = record.timestamp2  # Timestamp2 only present if record is a SEGB1
+
     print(offset, state, ts1, ts2)
     print(data.hex())
 ```
@@ -59,7 +59,7 @@ for record in ccl_segb1.read_segb1_file(input_path):
     data = record.data
     ts1 = record.timestamp1
     ts2 = record.timestamp2
-    
+
     print(offset, ts1, ts2)
     print(data.hex())
 ```
@@ -81,7 +81,7 @@ for record in ccl_segb2.read_segb2_file(input_path):
     state = record.metadata.state.name
     ts = record.metadata.creation
     data = record.data
-    
+
     print(offset, metadata_offset, ts, state)
     print(data)
 

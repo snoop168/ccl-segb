@@ -21,8 +21,8 @@ SOFTWARE.
 """
 
 import pathlib
-import ccl_segb1
-import ccl_segb2
+from . import ccl_segb1
+from . import ccl_segb2
 
 
 def read_segb_file(filename):
